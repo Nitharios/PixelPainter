@@ -46,8 +46,27 @@ clearButton.addEventListener('click', function() {
   currentColor = 'ffffff';
 });
 
+function grid(height, width){
+  for(var i = 0; i < height; i++){
+    for(var j = 0; j < width; j++){
+      var pixelCell = document.createElement("div");
+      pixelCell.className = "pixelCell";
+      painterCanvas.appendChild(pixelCell);
+    }
+    var breaker = document.createElement("br");
+    painterCanvas.appendChild(breaker);
+  }
+}
+
+
+grid(10,10);
+
+
+
+
+
 //CREATING GRID
-function ppCanvas(pixelNumber){
+/*function ppCanvas(pixelNumber){
   for(var i = 0; i < pixelNumber; i++){
     var pixelCell = document.createElement("div");
     pixelCell.className = "pixelCell";
@@ -57,8 +76,8 @@ function ppCanvas(pixelNumber){
     })
   }
 }
-
-ppCanvas(99);
+*/
+//ppCanvas(99);
 
 //CREATING COLOR PALLETE
 function ppColor(pixelNumber){
