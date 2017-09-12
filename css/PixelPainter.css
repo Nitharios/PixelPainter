@@ -10,7 +10,7 @@
   display: inline-block;
 }
 
-.pixelCell {
+.canvasCell {
   color: black;
   display: inline-block;
   height: 40px;
@@ -18,18 +18,22 @@
   border: 1px solid black;
 }
 
-.colorCell{
+.paletteCell{
   height: 40px;
   width: 40px;
   border: 1px solid black;
   display: inline-block;
 }
 
-.buttonBody {
+.buttonDiv {
   margin-top: 5px;
   display: inline-block;
+  border: 1px solid black;
 }
 
 .buttons {
   font-size: 20px;
+  margin: 10px;
+  width: 150px;
+  display: block;
 }

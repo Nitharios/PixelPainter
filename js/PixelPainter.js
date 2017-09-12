@@ -6,7 +6,7 @@
 var painterBody = document.getElementById('pixelPainter');
 var painterCanvas = document.createElement('div');
 var colorPalette = document.createElement('div');
-var buttonBody = document.createElement('div');
+var buttonDiv = document.createElement('div');
 var eraseButton = document.createElement('button');
 var clearButton = document.createElement('button');
 var currentColor;
@@ -14,8 +14,8 @@ var currentColor;
 var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b411d', 'f10714', '0d8163', '255083', '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f', '00fa9a'];
 
 // add ids to each created element
-painterBody.id = 'painterBody';
-document.body.appendChild(painterBody);
+// painterBody.id = 'painterBody';
+// document.body.appendChild(painterBody);
 
 painterCanvas.className = 'painterCanvas';
 painterBody.appendChild(painterCanvas);
@@ -23,28 +23,8 @@ painterBody.appendChild(painterCanvas);
 colorPalette.className = 'colorPalette';
 painterBody.appendChild(colorPalette);
 
-buttonBody.className = 'buttonBody';
-document.body.appendChild(buttonBody);
-
-//BUTTONS
-eraseButton.className = 'buttons';
-eraseButton.id = 'eraseButton';
-eraseButton.innerHTML = 'Erase';
-buttonBody.appendChild(eraseButton);
-eraseButton.addEventListener('click', function() {
-  currentColor = 'ffffff';
-});
-
-clearButton.className = 'buttons';
-clearButton.id = 'clearButton';
-clearButton.innerHTML = 'Clear';
-buttonBody.appendChild(clearButton);
-clearButton.addEventListener('click', function() {
-  for (var i = 0; i < document.getElementsByClassName('pixelCell').length; i++) {
-    document.getElementsByClassName('pixelCell')[i].style.backgroundColor = 'ffffff'
-  }
-  currentColor = 'ffffff';
-});
+buttonDiv.className = 'buttonDiv';
+colorPalette.appendChild(buttonDiv);
 
 // Create grid canvas
 function canvasGrid(height, width) {
@@ -53,12 +33,12 @@ function canvasGrid(height, width) {
     pixelRow.className = "pixelRow";
     painterCanvas.appendChild(pixelRow);
     for(var j = 0; j < width; j++) {
-      var pixelCell = document.createElement("div");
-      pixelCell.className = "pixelCell";
-      pixelCell.addEventListener("click", function() {
+      var canvasCell = document.createElement("div");
+      canvasCell.className = "canvasCell";
+      canvasCell.addEventListener("click", function() {
         event.target.style.backgroundColor = currentColor;
       });
-      pixelRow.appendChild(pixelCell);
+      pixelRow.appendChild(canvasCell);
     }
   }
 }
@@ -71,13 +51,13 @@ function paletteGrid(height, width) {
     colorPalette.appendChild(colorRow);
 
     for(var j = 0; j < width; j++) {
-      var colorCell = document.createElement("div");
-      colorCell.className = "colorCell";
-      colorCell.style.backgroundColor = colorArr[k];
-      colorCell.addEventListener("click", function() {
+      var paletteCell = document.createElement("div");
+      paletteCell.className = "paletteCell";
+      paletteCell.style.backgroundColor = colorArr[k];
+      paletteCell.addEventListener("click", function() {
         currentColor = event.target.style.backgroundColor;
       });
-      colorRow.appendChild(colorCell);
+      colorRow.appendChild(paletteCell);
       k++;
     }
   }
@@ -86,13 +66,33 @@ function paletteGrid(height, width) {
 canvasGrid(10,10);
 paletteGrid(4,4);
 
+//BUTTONS
+eraseButton.className = 'buttons';
+eraseButton.id = 'eraseButton';
+eraseButton.innerHTML = 'Erase';
+buttonDiv.appendChild(eraseButton);
+eraseButton.addEventListener('click', function() {
+  currentColor = 'ffffff';
+});
+
+clearButton.className = 'buttons';
+clearButton.id = 'clearButton';
+clearButton.innerHTML = 'Clear';
+buttonDiv.appendChild(clearButton);
+clearButton.addEventListener('click', function() {
+  for (var i = 0; i < document.getElementsByClassName('canvasCell').length; i++) {
+    document.getElementsByClassName('canvasCell')[i].style.backgroundColor = 'ffffff'
+  }
+  currentColor = 'ffffff';
+});
+
 //CREATING GRID
 /*function ppCanvas(pixelNumber){
   for(var i = 0; i < pixelNumber; i++){
-    var pixelCell = document.createElement("div");
-    pixelCell.className = "pixelCell";
-    painterCanvas.appendChild(pixelCell);
-    pixelCell.addEventListener("click", function() {
+    var canvasCell = document.createElement("div");
+    canvasCell.className = "canvasCell";
+    painterCanvas.appendChild(canvasCell);
+    canvasCell.addEventListener("click", function() {
       event.target.style.backgroundColor = currentColor;
     })
   }
@@ -103,11 +103,11 @@ paletteGrid(4,4);
 //CREATING COLOR PALLETE
 /* function ppColor(pixelNumber){
   for(var i = 0; i < pixelNumber; i++){
-    var colorCell = document.createElement("div");
-    colorCell.className = "colorCell";
-    colorPalette.appendChild(colorCell);
-    colorCell.style.backgroundColor = colorArr[i];
-    colorCell.addEventListener("click", function() {
+    var paletteCell = document.createElement("div");
+    paletteCell.className = "paletteCell";
+    colorPalette.appendChild(paletteCell);
+    paletteCell.style.backgroundColor = colorArr[i];
+    paletteCell.addEventListener("click", function() {
       currentColor = event.target.style.backgroundColor;
       console.log(currentColor);
     });
