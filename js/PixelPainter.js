@@ -23,7 +23,7 @@ painterBody.appendChild(painterCanvas);
 colorPalette.className = 'colorPalette';
 painterBody.appendChild(colorPalette);
 
-buttonBody.id = 'buttonBody';
+buttonBody.className = 'buttonBody';
 document.body.appendChild(buttonBody);
 
 //BUTTONS
@@ -35,7 +35,7 @@ eraseButton.addEventListener('click', function() {
   currentColor = 'ffffff';
 });
 
-clearButton.classname = 'buttons';
+clearButton.className = 'buttons';
 clearButton.id = 'clearButton';
 clearButton.innerHTML = 'Clear';
 buttonBody.appendChild(clearButton);
@@ -47,15 +47,15 @@ clearButton.addEventListener('click', function() {
 });
 
 // Create grid canvas
-function grid(height, width){
-  for(var i = 0; i < height; i++){
+function canvasGrid(height, width) {
+  for(var i = 0; i < height; i++) {
     var pixelRow = document.createElement("div");
     pixelRow.className = "pixelRow";
     painterCanvas.appendChild(pixelRow);
-    for(var j = 0; j < width; j++){
+    for(var j = 0; j < width; j++) {
       var pixelCell = document.createElement("div");
       pixelCell.className = "pixelCell";
-      pixelCell.addEventListener("click", function(){
+      pixelCell.addEventListener("click", function() {
         event.target.style.backgroundColor = currentColor;
       });
       pixelRow.appendChild(pixelCell);
@@ -64,27 +64,27 @@ function grid(height, width){
 }
 
 // Create color palette
-function colorGrid(height, width){
-  for(var i = 0, k = 0; i < height; i++){
+function paletteGrid(height, width) {
+  for(var i = 0, k = 0; i < height; i++) {
     var colorRow = document.createElement("div");
     colorRow.className = "colorRow";
     colorPalette.appendChild(colorRow);
 
-    for(var j = 0; j < width; j++){
+    for(var j = 0; j < width; j++) {
       var colorCell = document.createElement("div");
       colorCell.className = "colorCell";
       colorCell.style.backgroundColor = colorArr[k];
-      k++;
-      colorCell.addEventListener("click", function(){
+      colorCell.addEventListener("click", function() {
         currentColor = event.target.style.backgroundColor;
       });
       colorRow.appendChild(colorCell);
+      k++;
     }
   }
 }
 
-grid(10,10);
-colorGrid(4,4);
+canvasGrid(10,10);
+paletteGrid(4,4);
 
 //CREATING GRID
 /*function ppCanvas(pixelNumber){
