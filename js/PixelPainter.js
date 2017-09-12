@@ -61,7 +61,7 @@ function paletteGrid(height, width) {
   }
 }
 
-canvasGrid(10,10);
+canvasGrid(20,20);
 paletteGrid(4,4);
 
 buttonDiv.className = 'buttonDiv';
