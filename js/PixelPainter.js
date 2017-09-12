@@ -6,11 +6,12 @@
 var painterBody = document.createElement('div');
 var painterCanvas = document.createElement('div');
 var colorPalette = document.createElement('div');
+var buttonBody = document.createElement('div');
 var eraseButton = document.createElement('button');
 var clearButton = document.createElement('button');
 var currentColor;
 
-var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b411d', 'f10714', '0d8163', '255083', '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f', '00fa9a', 'violet'];
+var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b411d', 'f10714', '0d8163', '255083', '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f', '00fa9a'];
 
 // add ids to each created element
 painterBody.id = 'painterBody';
@@ -22,12 +23,14 @@ painterBody.appendChild(painterCanvas);
 colorPalette.className = 'colorPalette';
 painterBody.appendChild(colorPalette);
 
+buttonBody.id = 'buttonBody';
+document.body.appendChild(buttonBody);
 
 //BUTTONS
 eraseButton.className = 'buttons';
 eraseButton.id = 'eraseButton';
 eraseButton.innerHTML = 'Erase';
-painterBody.appendChild(eraseButton);
+buttonBody.appendChild(eraseButton);
 eraseButton.addEventListener('click', function() {
   currentColor = 'ffffff';
 });
@@ -35,7 +38,7 @@ eraseButton.addEventListener('click', function() {
 clearButton.classname = 'buttons';
 clearButton.id = 'clearButton';
 clearButton.innerHTML = 'Clear';
-painterBody.appendChild(clearButton);
+buttonBody.appendChild(clearButton);
 clearButton.addEventListener('click', function() {
   for (var i = 0; i < document.getElementsByClassName('pixelCell').length; i++) {
     document.getElementsByClassName('pixelCell')[i].style.backgroundColor = 'ffffff'

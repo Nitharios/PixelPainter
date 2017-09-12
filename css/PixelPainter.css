@@ -27,10 +27,6 @@
 
 }
 
-#eraseButton {
-  display: block;
-}
-
-#clearButton {
-  display: block;
+#buttonBody {
+  margin-top: 5px;
 }
