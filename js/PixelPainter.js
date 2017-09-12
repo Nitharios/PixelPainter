@@ -28,13 +28,20 @@ eraseButton.className = 'buttons';
 eraseButton.id = 'eraseButton';
 eraseButton.innerHTML = 'Erase';
 painterBody.appendChild(eraseButton);
-// eraseButton.addEventListener('click', erase);
+eraseButton.addEventListener('click', function() {
+  currentColor = 'ffffff';
+});
 
 clearButton.classname = 'buttons';
 clearButton.id = 'clearButton';
 clearButton.innerHTML = 'Clear';
 painterBody.appendChild(clearButton);
-// clearButton.addEventListener('click', clear);
+clearButton.addEventListener('click', function() {
+  for (var i = 0; i < document.getElementsByClassName('pixelCell').length; i++) {
+    document.getElementsByClassName('pixelCell')[i].style.backgroundColor = 'ffffff'
+  }
+  currentColor = 'ffffff';
+});
 
 //CREATING GRID
 function ppCanvas(pixelNumber){
