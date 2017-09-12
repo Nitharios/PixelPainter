@@ -3,7 +3,7 @@
 // erase
 // clear
 
-var painterBody = document.createElement('div');
+var painterBody = document.getElementById('pixelPainter');
 var painterCanvas = document.createElement('div');
 var colorPalette = document.createElement('div');
 var buttonBody = document.createElement('div');
@@ -58,7 +58,6 @@ function grid(height, width){
   }
 }
 
-
 grid(10,10);
 
 
@@ -79,8 +78,34 @@ grid(10,10);
 */
 //ppCanvas(99);
 
+
+function colorGrid(height, width){
+  for(var i = 0; i < height; i++){
+    for(var j = 0; j < width; j++){
+      var colorCell = document.createElement("div");
+      colorCell.className = "colorCell";
+      colorPalette.appendChild(colorCell);
+      colorCell.style.backgroundColor = colorArr[i];
+    }
+    var breaker = document.createElement("br");
+    colorPalette.appendChild(breaker);
+
+  }
+}
+colorGrid(4,4);
+
+
+
+
+
+
+
+
+
+
+
 //CREATING COLOR PALLETE
-function ppColor(pixelNumber){
+/* function ppColor(pixelNumber){
   for(var i = 0; i < pixelNumber; i++){
     var colorCell = document.createElement("div");
     colorCell.className = "colorCell";
@@ -94,6 +119,8 @@ function ppColor(pixelNumber){
 }
 
 ppColor(16);
+*/
+
 
 
 
