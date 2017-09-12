@@ -5,7 +5,7 @@
 
 var painterBody = document.getElementById('pixelPainter');
 var painterCanvas = document.createElement('div');
-var colorPalette = document.createElement('div');
+var painterPalette = document.createElement('div');
 var buttonDiv = document.createElement('div');
 var eraseButton = document.createElement('button');
 var clearButton = document.createElement('button');
@@ -20,11 +20,11 @@ var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b4
 painterCanvas.className = 'painterCanvas';
 painterBody.appendChild(painterCanvas);
 
-colorPalette.className = 'colorPalette';
-painterBody.appendChild(colorPalette);
+painterPalette.className = 'painterPalette';
+painterBody.appendChild(painterPalette);
 
 buttonDiv.className = 'buttonDiv';
-colorPalette.appendChild(buttonDiv);
+painterPalette.appendChild(buttonDiv);
 
 // Create grid canvas
 function canvasGrid(height, width) {
@@ -48,7 +48,7 @@ function paletteGrid(height, width) {
   for(var i = 0, k = 0; i < height; i++) {
     var colorRow = document.createElement("div");
     colorRow.className = "colorRow";
-    colorPalette.appendChild(colorRow);
+    painterPalette.appendChild(colorRow);
 
     for(var j = 0; j < width; j++) {
       var paletteCell = document.createElement("div");
@@ -105,7 +105,7 @@ clearButton.addEventListener('click', function() {
   for(var i = 0; i < pixelNumber; i++){
     var paletteCell = document.createElement("div");
     paletteCell.className = "paletteCell";
-    colorPalette.appendChild(paletteCell);
+    painterPalette.appendChild(paletteCell);
     paletteCell.style.backgroundColor = colorArr[i];
     paletteCell.addEventListener("click", function() {
       currentColor = event.target.style.backgroundColor;
