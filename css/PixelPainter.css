@@ -10,7 +10,7 @@
 }
 
 .painterPalette {
-  border: 1px solid black;
+
   margin-left: 50px;
   float: left;
   position: absolute;
@@ -25,7 +25,8 @@
 }
 
 .buttonDiv {
-  margin-top: 50px;
+  margin-top: 46px;
+  margin-left: 8px;
   display: inline-block;
 }
 
