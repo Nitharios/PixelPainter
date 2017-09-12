@@ -23,8 +23,6 @@ painterBody.appendChild(painterCanvas);
 painterPalette.className = 'painterPalette';
 painterBody.appendChild(painterPalette);
 
-buttonDiv.className = 'buttonDiv';
-painterPalette.appendChild(buttonDiv);
 
 // Create grid canvas
 function canvasGrid(height, width) {
@@ -65,6 +63,9 @@ function paletteGrid(height, width) {
 
 canvasGrid(10,10);
 paletteGrid(4,4);
+
+buttonDiv.className = 'buttonDiv';
+painterPalette.appendChild(buttonDiv);
 
 //BUTTONS
 eraseButton.className = 'buttons';
