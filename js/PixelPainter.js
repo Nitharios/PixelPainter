@@ -58,7 +58,7 @@ function ppCanvas(pixelNumber){
   }
 }
 
-ppCanvas(100);
+ppCanvas(99);
 
 //CREATING COLOR PALLETE
 function ppColor(pixelNumber){
