@@ -46,6 +46,7 @@ clearButton.addEventListener('click', function() {
   currentColor = 'ffffff';
 });
 
+// Create grid canvas
 function grid(height, width){
   for(var i = 0; i < height; i++){
     var pixelRow = document.createElement("div");
@@ -58,36 +59,11 @@ function grid(height, width){
         event.target.style.backgroundColor = currentColor;
       });
       pixelRow.appendChild(pixelCell);
-
     }
-    //var breaker = document.createElement("br");
-    //painterCanvas.appendChild(breaker);
-  }
-
-
-}
-
-grid(10,10);
-
-
-
-
-
-//CREATING GRID
-/*function ppCanvas(pixelNumber){
-  for(var i = 0; i < pixelNumber; i++){
-    var pixelCell = document.createElement("div");
-    pixelCell.className = "pixelCell";
-    painterCanvas.appendChild(pixelCell);
-    pixelCell.addEventListener("click", function() {
-      event.target.style.backgroundColor = currentColor;
-    })
   }
 }
-*/
-//ppCanvas(99);
 
-
+// Create color palette
 function colorGrid(height, width){
   for(var i = 0, k = 0; i < height; i++){
     var colorRow = document.createElement("div");
@@ -103,14 +79,26 @@ function colorGrid(height, width){
         currentColor = event.target.style.backgroundColor;
       });
       colorRow.appendChild(colorCell);
-
     }
-    //var breaker = document.createElement("br");
-    //colorPalette.appendChild(breaker);
-
   }
 }
+
+grid(10,10);
 colorGrid(4,4);
+
+//CREATING GRID
+/*function ppCanvas(pixelNumber){
+  for(var i = 0; i < pixelNumber; i++){
+    var pixelCell = document.createElement("div");
+    pixelCell.className = "pixelCell";
+    painterCanvas.appendChild(pixelCell);
+    pixelCell.addEventListener("click", function() {
+      event.target.style.backgroundColor = currentColor;
+    })
+  }
+}
+*/
+//ppCanvas(99);
 
 //CREATING COLOR PALLETE
 /* function ppColor(pixelNumber){
