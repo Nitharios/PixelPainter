@@ -1,0 +1,42 @@
+.painterCanvas {
+  width: 125px;
+  display: inline-block;
+}
+
+.colorPalette {
+  width: 50px;
+  height: 50px;
+  float: left;
+  position: absolute;
+  display: inline-block;
+
+
+}
+
+
+
+
+
+.pixelCell {
+  color: black;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border: 1px solid black;
+}
+
+.colorCell{
+  height:10px;
+  width: 10px;
+  border: 1px solid black;
+  display: inline-block;
+
+}
+
+#eraseButton {
+  display: block;
+}
+
+#clearButton {
+  display: block;
+}
