@@ -130,39 +130,7 @@ clearButton.addEventListener('click', function() {
 });
 buttonDiv.appendChild(clearButton);
 
-var saveButton = document.createElement("button");
-saveButton.id = "saveButton";
-saveButton.className = "buttons";
-saveButton.innerHTML = "Save";
-buttonDiv.appendChild(saveButton);
-saveButton.addEventListener("click", function(){
-  var currentPic = document.querySelectorAll("canvasCell");
-  if (colorArray.length === 0){
-    for(var i = 0; i < currentPic.length; i++){
-      colorArray.push(currentPic[i].style.background);
-    }
 
-  } else {
-      colorArray = [];
-      for(var j = 0; j < currentPic.length; j++){
-        colorArray.push(currentPic[j].style.background);
-      }
-    }
-
-});
-
-var loadButton = document.createElement("button");
-loadButton.id = "loadButton";
-loadButton.className = "buttons";
-loadButton.innerHTML = "Load";
-buttonDiv.appendChild(loadButton);
-loadButton.addEventListener("click", function(){
-  var currentPic = document.querySelectorAll("canvasCell");
-  for(var i = 0; i < colorArray.length; i++){
-    currentPic[i].style.background = colorArray[i];
-  }
-
-});
 
 function resetPalette() {
   for (var i = 0; i < document.getElementsByClassName('paletteCell').length; i++) {
@@ -205,6 +173,37 @@ ppColor(16);
 
 
 
+var saveButton = document.createElement("button");
+saveButton.id = "saveButton";
+saveButton.className = "buttons";
+saveButton.innerHTML = "Save";
+saveButton.addEventListener('click', savePic);
+buttonDiv.appendChild(saveButton);
 
+function savePic(){
+  var currentPic = document.getElementsByClassName("canvasCell");
+  for (var i = 0; i < currentPic.length; i++) {
+    colorArray.push(currentPic[i].style.backgroundColor);
+  }
+  console.log(colorArray);
+  mouseClick = false;
+  console.log(mouseClick);
+}
 
+var loadButton = document.createElement("button");
+loadButton.id = "loadButton";
+loadButton.className = "buttons";
+loadButton.innerHTML = "Load";
+loadButton.addEventListener("click", loadPic);
+buttonDiv.appendChild(loadButton);
+
+function loadPic(){
+  var currentPic = document.getElementsByClassName("canvasCell");
+  for(var i = 0; i < currentPic.length; i++){
+    currentPic[i].style.backgroundColor = colorArray[i];
+  }
+  colorArray = [];
+  mouseClick = false;
+  console.log(mouseClick);
+}
 
