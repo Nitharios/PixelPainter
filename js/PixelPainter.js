@@ -7,6 +7,7 @@ var painterBody = document.getElementById('pixelPainter');
 var painterCanvas = document.createElement('div');
 var painterPalette = document.createElement('div');
 var buttonDiv = document.createElement('div');
+var fillButton = document.createElement('button');
 var eraseButton = document.createElement('button');
 var clearButton = document.createElement('button');
 var mouseClick = false;
@@ -68,12 +69,7 @@ function paletteGrid(height, width) {
       paletteCell.className = "paletteCell";
       paletteCell.style.backgroundColor = colorArr[k];
       paletteCell.addEventListener("click", function() {
-        for (var i = 0; i < document.getElementsByClassName('paletteCell').length; i++) {
-          document.getElementsByClassName('paletteCell')[i].style.width = '40px';
-          document.getElementsByClassName('paletteCell')[i].style.height = '40px';
-          document.getElementsByClassName('paletteCell')[i].style.border = '0px';
-        }
-
+        resetPalette();
         event.target.style.width = '36px';
         event.target.style.height = '36px';
         event.target.style.border = '2px solid black';
@@ -93,26 +89,47 @@ buttonDiv.className = 'buttonDiv';
 painterPalette.appendChild(buttonDiv);
 
 //BUTTONS
+fillButton.className = 'buttons';
+fillButton.id = 'fillButton';
+fillButton.innerHTML = 'Fill';
+fillButton.addEventListener('click', function() {
+  for (var i = 0; i < document.getElementsByClassName('canvasCell').length; i++) {
+    if (document.getElementsByClassName('canvasCell')[i] === 'ffffff') {
+      document.getElementsByClassName('canvasCell')[i].style.backgroundColor = currentColor;   
+    };
+  };
+});
+buttonDiv.appendChild(fillButton);
+
 eraseButton.className = 'buttons';
 eraseButton.id = 'eraseButton';
 eraseButton.innerHTML = 'Erase';
-buttonDiv.appendChild(eraseButton);
 eraseButton.addEventListener('click', function() {
   currentColor = 'ffffff';
   mouseClick = false;
 });
+buttonDiv.appendChild(eraseButton);
 
 clearButton.className = 'buttons';
 clearButton.id = 'clearButton';
 clearButton.innerHTML = 'Clear';
-buttonDiv.appendChild(clearButton);
 clearButton.addEventListener('click', function() {
   for (var i = 0; i < document.getElementsByClassName('canvasCell').length; i++) {
     document.getElementsByClassName('canvasCell')[i].style.backgroundColor = 'ffffff'
   }
+  resetPalette();
   currentColor = 'ffffff';
   mouseClick = false;
 });
+buttonDiv.appendChild(clearButton);
+
+function resetPalette() {
+  for (var i = 0; i < document.getElementsByClassName('paletteCell').length; i++) {
+    document.getElementsByClassName('paletteCell')[i].style.width = '40px';
+    document.getElementsByClassName('paletteCell')[i].style.height = '40px';
+    document.getElementsByClassName('paletteCell')[i].style.border = '0px';
+  }
+}
 
 //CREATING GRID
 /*function ppCanvas(pixelNumber){
