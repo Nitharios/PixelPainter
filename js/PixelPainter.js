@@ -89,17 +89,22 @@ buttonDiv.className = 'buttonDiv';
 painterPalette.appendChild(buttonDiv);
 
 //BUTTONS
-fillButton.className = 'buttons';
-fillButton.id = 'fillButton';
-fillButton.innerHTML = 'Fill';
-fillButton.addEventListener('click', function() {
-  for (var i = 0; i < document.getElementsByClassName('canvasCell').length; i++) {
-    if (document.getElementsByClassName('canvasCell')[i] === 'ffffff') {
-      document.getElementsByClassName('canvasCell')[i].style.backgroundColor = currentColor;   
-    };
-  };
-});
-buttonDiv.appendChild(fillButton);
+// fillButton.className = 'buttons';
+// fillButton.id = 'fillButton';
+// fillButton.innerHTML = 'Fill';
+
+// var canvasCellArr = document.getElementsByClassName('canvasCell');
+
+// fillButton.addEventListener('click', function() {
+//   for (var i = 0; i < canvasCellArr.length; i++) {
+//     if (canvasCellArr[i].style.backgroundColor === 'ffffff') {
+//       console.log(currentColor);
+//       canvasCellArr[i].style.backgroundColor = currentColor;   
+//     };
+//   };
+//   // console.log(currentColor);
+// });
+// buttonDiv.appendChild(fillButton);
 
 eraseButton.className = 'buttons';
 eraseButton.id = 'eraseButton';
