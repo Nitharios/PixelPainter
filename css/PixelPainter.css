@@ -1,6 +1,11 @@
 h1 {
   font-size: 150px;
   text-align: center;
+   background: -webkit-linear-gradient(#ff4d4d
+  , #ffb366, #3366ff,#4dd2ff,#66ff99, #a64dff, #ffff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Princess Sofia', cursive;
   color: background: -webkit-linear-gradient(left top, red, yellow);
 }
 
@@ -11,7 +16,8 @@ h1 {
 
 .painterCanvas {
   display: inline-block;
-  /*margin-left: 50px; */
+  margin-top: 20px;
+
 }
 
 .canvasCell {
@@ -33,6 +39,7 @@ h1 {
   height: 40px;
   width: 40px;
   display: inline-block;
+
 }
 
 .buttonDiv {
@@ -43,17 +50,18 @@ h1 {
 
 .buttons {
   font-size: 25px;
+  font-family: 'Princess Sofia', cursive;
   margin: auto;
   width: 150px;
   display: block;
-  margin-top: 50px;
-  padding: 10px;
+  margin-top: 20px;
+  padding: 5px;
 }
 
-#clearButton {
+/*#clearButton {
   margin-top: 25px
 }
-
+*/
 
 
 
