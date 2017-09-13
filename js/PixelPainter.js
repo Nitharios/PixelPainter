@@ -14,8 +14,6 @@ var mouseClick = false;
 var currentColor;
 var colorArray = [];
 
-
-
 var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff',
                 '4169e1', '3b411d', 'f10714', '0d8163', '255083',
                 '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f',
@@ -42,6 +40,7 @@ function canvasGrid(height, width) {
     for(var j = 0; j < width; j++) {
       var canvasCell = document.createElement("div");
       canvasCell.className = "canvasCell";
+      canvasCell.style.backgroundColor = 'ffffff';
       canvasCell.addEventListener('click', function() {
         if (mouseClick === false) {
           event.target.style.backgroundColor = currentColor;
@@ -91,22 +90,21 @@ buttonDiv.className = 'buttonDiv';
 painterPalette.appendChild(buttonDiv);
 
 //BUTTONS
-// fillButton.className = 'buttons';
-// fillButton.id = 'fillButton';
-// fillButton.innerHTML = 'Fill';
+fillButton.className = 'buttons';
+fillButton.id = 'fillButton';
+fillButton.innerHTML = 'Fill';
 
-// var canvasCellArr = document.getElementsByClassName('canvasCell');
-
-// fillButton.addEventListener('click', function() {
-//   for (var i = 0; i < canvasCellArr.length; i++) {
-//     if (canvasCellArr[i].style.backgroundColor === 'ffffff') {
-//       console.log(currentColor);
-//       canvasCellArr[i].style.backgroundColor = currentColor;
-//     };
-//   };
-//   // console.log(currentColor);
-// });
-// buttonDiv.appendChild(fillButton);
+fillButton.addEventListener('click', function() {
+  var canvasCellArr = document.getElementsByClassName('canvasCell');
+  for (var i = 0; i < canvasCellArr.length; i++) {
+    if (canvasCellArr[i].style.backgroundColor === 'ffffff') {
+      console.log(currentColor);
+      canvasCellArr[i].style.backgroundColor = currentColor;
+    };
+  };
+  // console.log(currentColor);
+});
+buttonDiv.appendChild(fillButton);
 
 eraseButton.className = 'buttons';
 eraseButton.id = 'eraseButton';
