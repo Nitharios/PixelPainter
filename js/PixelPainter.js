@@ -9,6 +9,7 @@ var painterPalette = document.createElement('div');
 var buttonDiv = document.createElement('div');
 var eraseButton = document.createElement('button');
 var clearButton = document.createElement('button');
+var mouseClick = false;
 var currentColor;
 
 var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b411d', 'f10714', '0d8163', '255083', '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f', '00fa9a'];
@@ -33,8 +34,18 @@ function canvasGrid(height, width) {
     for(var j = 0; j < width; j++) {
       var canvasCell = document.createElement("div");
       canvasCell.className = "canvasCell";
-      canvasCell.addEventListener("click", function() {
-        event.target.style.backgroundColor = currentColor;
+      canvasCell.addEventListener('click', function() {
+        if (mouseClick === false && currentColor !== 'ffffff') {
+          event.target.style.backgroundColor = currentColor;
+          mouseClick = true;
+        } else if (mouseClick === true) {
+          mouseClick = false;
+        }
+      });
+      canvasCell.addEventListener("mouseover", function() {
+        if (mouseClick === true) {
+          event.target.style.backgroundColor = currentColor;
+        }
       });
       pixelRow.appendChild(canvasCell);
     }
@@ -47,7 +58,6 @@ function paletteGrid(height, width) {
     var colorRow = document.createElement("div");
     colorRow.className = "colorRow";
     painterPalette.appendChild(colorRow);
-
     for(var j = 0; j < width; j++) {
       var paletteCell = document.createElement("div");
       paletteCell.className = "paletteCell";
@@ -85,6 +95,7 @@ clearButton.addEventListener('click', function() {
     document.getElementsByClassName('canvasCell')[i].style.backgroundColor = 'ffffff'
   }
   currentColor = 'ffffff';
+  mouseClick = false;
 });
 
 //CREATING GRID
