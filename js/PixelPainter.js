@@ -16,7 +16,8 @@ var currentColor;
 var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff',
                 '4169e1', '3b411d', 'f10714', '0d8163', '255083',
                 '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f',
-                '00fa9a', '00ffff', '666699','cc9900','#ffff99' ];
+                '00fa9a', '00ffff', '666699','cc9900','#ffff99',
+                'ff3300', '669900', 'cc3399', 'ffcccc', '999966'];
 
 // add ids to each created element
 // painterBody.id = 'painterBody';
@@ -77,7 +78,7 @@ function paletteGrid(height, width) {
 }
 
 canvasGrid(20,20);
-paletteGrid(5,4);
+paletteGrid(5,5);
 
 buttonDiv.className = 'buttonDiv';
 painterPalette.appendChild(buttonDiv);
