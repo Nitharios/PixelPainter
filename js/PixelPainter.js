@@ -12,6 +12,8 @@ var eraseButton = document.createElement('button');
 var clearButton = document.createElement('button');
 var mouseClick = false;
 var currentColor;
+var colorArray = [];
+
 
 
 var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff',
@@ -99,7 +101,7 @@ painterPalette.appendChild(buttonDiv);
 //   for (var i = 0; i < canvasCellArr.length; i++) {
 //     if (canvasCellArr[i].style.backgroundColor === 'ffffff') {
 //       console.log(currentColor);
-//       canvasCellArr[i].style.backgroundColor = currentColor;   
+//       canvasCellArr[i].style.backgroundColor = currentColor;
 //     };
 //   };
 //   // console.log(currentColor);
@@ -127,6 +129,40 @@ clearButton.addEventListener('click', function() {
   mouseClick = false;
 });
 buttonDiv.appendChild(clearButton);
+
+var saveButton = document.createElement("button");
+saveButton.id = "saveButton";
+saveButton.className = "buttons";
+saveButton.innerHTML = "Save";
+buttonDiv.appendChild(saveButton);
+saveButton.addEventListener("click", function(){
+  var currentPic = document.querySelectorAll("canvasCell");
+  if (colorArray.length === 0){
+    for(var i = 0; i < currentPic.length; i++){
+      colorArray.push(currentPic[i].style.background);
+    }
+
+  } else {
+      colorArray = [];
+      for(var j = 0; j < currentPic.length; j++){
+        colorArray.push(currentPic[j].style.background);
+      }
+    }
+
+});
+
+var loadButton = document.createElement("button");
+loadButton.id = "loadButton";
+loadButton.className = "buttons";
+loadButton.innerHTML = "Load";
+buttonDiv.appendChild(loadButton);
+loadButton.addEventListener("click", function(){
+  var currentPic = document.querySelectorAll("canvasCell");
+  for(var i = 0; i < colorArray.length; i++){
+    currentPic[i].style.background = colorArray[i];
+  }
+
+});
 
 function resetPalette() {
   for (var i = 0; i < document.getElementsByClassName('paletteCell').length; i++) {
