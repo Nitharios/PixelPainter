@@ -68,6 +68,15 @@ function paletteGrid(height, width) {
       paletteCell.className = "paletteCell";
       paletteCell.style.backgroundColor = colorArr[k];
       paletteCell.addEventListener("click", function() {
+        for (var i = 0; i < document.getElementsByClassName('paletteCell').length; i++) {
+          document.getElementsByClassName('paletteCell')[i].style.width = '40px';
+          document.getElementsByClassName('paletteCell')[i].style.height = '40px';
+          document.getElementsByClassName('paletteCell')[i].style.border = '0px';
+        }
+
+        event.target.style.width = '36px';
+        event.target.style.height = '36px';
+        event.target.style.border = '2px solid black';
         currentColor = event.target.style.backgroundColor;
         mouseClick = false;
       });
