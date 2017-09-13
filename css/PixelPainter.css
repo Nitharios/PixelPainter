@@ -1,6 +1,15 @@
+h1 {
+  font-size: 150px;
+  text-align: center;
+}
+
+#painterBody {
+  margin: auto;
+}
+
 .painterCanvas {
   display: inline-block;
-  margin-left: 50px;
+  /*margin-left: 50px; */
 }
 
 .canvasCell {

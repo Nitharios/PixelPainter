@@ -12,7 +12,11 @@ var clearButton = document.createElement('button');
 var mouseClick = false;
 var currentColor;
 
-var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b411d', 'f10714', '0d8163', '255083', '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f', '00fa9a'];
+
+var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff',
+                '4169e1', '3b411d', 'f10714', '0d8163', '255083',
+                '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f',
+                '00fa9a', '00ffff', '666699','cc9900','#ffff99' ];
 
 // add ids to each created element
 // painterBody.id = 'painterBody';
@@ -35,7 +39,7 @@ function canvasGrid(height, width) {
       var canvasCell = document.createElement("div");
       canvasCell.className = "canvasCell";
       canvasCell.addEventListener('click', function() {
-        if (mouseClick === false && currentColor !== 'ffffff') {
+        if (mouseClick === false) {
           event.target.style.backgroundColor = currentColor;
           mouseClick = true;
         } else if (mouseClick === true) {
@@ -64,6 +68,7 @@ function paletteGrid(height, width) {
       paletteCell.style.backgroundColor = colorArr[k];
       paletteCell.addEventListener("click", function() {
         currentColor = event.target.style.backgroundColor;
+        mouseClick = false;
       });
       colorRow.appendChild(paletteCell);
       k++;
@@ -72,7 +77,7 @@ function paletteGrid(height, width) {
 }
 
 canvasGrid(20,20);
-paletteGrid(4,4);
+paletteGrid(5,4);
 
 buttonDiv.className = 'buttonDiv';
 painterPalette.appendChild(buttonDiv);
@@ -84,6 +89,7 @@ eraseButton.innerHTML = 'Erase';
 buttonDiv.appendChild(eraseButton);
 eraseButton.addEventListener('click', function() {
   currentColor = 'ffffff';
+  mouseClick = false;
 });
 
 clearButton.className = 'buttons';
