@@ -1,3 +1,10 @@
+body {
+  background-image: url('https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom 0px left;
+  background-size: 25%;
+}
+
 h1 {
   font-size: 150px;
   text-align: center;
@@ -15,9 +22,8 @@ h1 {
 }
 
 .painterCanvas {
+  background-image: url('https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fi1.kym-cdn.com%2Fentries%2Ficons%2Foriginal%2F000%2F007%2F423%2Funtitle.JPG&f=1');
   display: inline-block;
-  margin-top: 20px;
-
 }
 
 .canvasCell {
@@ -28,7 +34,6 @@ h1 {
 }
 
 .painterPalette {
-  margin-top: 25px;
   margin-left: 50px;
   float: left;
   position: absolute;
@@ -49,13 +54,12 @@ h1 {
 }
 
 .buttons {
-  font-size: 25px;
+  font-size: 15px;
   font-family: 'Princess Sofia', cursive;
   margin: auto;
-  width: 150px;
+  width: 200px;
   display: block;
   margin-top: 20px;
-  padding: 5px;
 }
 
 /*#clearButton {
