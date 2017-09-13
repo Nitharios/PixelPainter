@@ -142,11 +142,13 @@ loadButton.addEventListener("click", loadPic);
 buttonDiv.appendChild(loadButton);
 
 function savePic(){
+  colorArray = [];
   var currentPic = document.getElementsByClassName("canvasCell");
   for (var i = 0; i < currentPic.length; i++) {
     colorArray.push(currentPic[i].style.backgroundColor);
   }
   mouseClick = false;
+
 }
 
 function loadPic(){
@@ -154,7 +156,7 @@ function loadPic(){
   for(var i = 0; i < currentPic.length; i++){
     currentPic[i].style.backgroundColor = colorArray[i];
   }
-  colorArray = [];
+  //colorArray = [];
   mouseClick = false;
 }
 
