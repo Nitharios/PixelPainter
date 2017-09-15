@@ -10,7 +10,6 @@ Nathan's notes:
   - If you set the backgroundColor of canvasCell (or any div) to null, it will reveal the background of that div or body
 */
 
-
 var painterBody = document.getElementById('pixelPainter');
 var painterCanvas = document.createElement('div');
 var painterPalette = document.createElement('div');
@@ -48,19 +47,8 @@ function canvasGrid(height, width) {
       var canvasCell = document.createElement("div");
       canvasCell.className = "canvasCell";
       canvasCell.style.backgroundColor = 'rgb(255, 255, 255)';
-      canvasCell.addEventListener('click', function() {
-        if (mouseClick === false) {
-          event.target.style.backgroundColor = currentColor;
-          mouseClick = true;
-        } else if (mouseClick === true) {
-          mouseClick = false;
-        }
-      });
-      canvasCell.addEventListener("mouseover", function() {
-        if (mouseClick === true) {
-          event.target.style.backgroundColor = currentColor;
-        }
-      });
+      canvasCell.addEventListener('click', canvasCellClickListener);
+      canvasCell.addEventListener("mouseover", canvasCellMouseoverListener);
       pixelRow.appendChild(canvasCell);
     }
   }
@@ -76,15 +64,7 @@ function paletteGrid(height, width) {
       var paletteCell = document.createElement("div");
       paletteCell.className = "paletteCell";
       paletteCell.style.backgroundColor = colorArr[k];
-      paletteCell.addEventListener("click", function() {
-        resetPalette();
-        event.target.style.width = '36px';
-        event.target.style.height = '36px';
-        event.target.style.border = '2px solid black';
-        previousColor = currentColor;
-        currentColor = event.target.style.backgroundColor;
-        mouseClick = false;
-      });
+      paletteCell.addEventListener("click", paletteCellClickListener);
       colorRow.appendChild(paletteCell);
       k++;
     }
@@ -102,41 +82,21 @@ painterPalette.appendChild(buttonDiv);
 eraseButton.className = 'buttons';
 eraseButton.id = 'eraseButton';
 eraseButton.innerHTML = 'Erase';
-eraseButton.addEventListener('click', function() {
-  currentColor = 'rgb(255, 255, 255)';
-  mouseClick = false;
-});
+eraseButton.addEventListener('click', eraseButtonClickListener);
 buttonDiv.appendChild(eraseButton);
 
 // Fills any space not colored by currentColor
 fillButton.className = 'buttons';
 fillButton.id = 'fillButton';
 fillButton.innerHTML = 'Fill';
-fillButton.addEventListener('click', function() {
-  var canvasCellArr = document.getElementsByClassName('canvasCell');
-  for (var i = 0; i < canvasCellArr.length; i++) {
-    if (canvasCellArr[i].style.backgroundColor !== previousColor) {
-      console.log(currentColor);
-      canvasCellArr[i].style.backgroundColor = currentColor;
-    };
-  };
-  // console.log(currentColor);
-});
+fillButton.addEventListener('click', fillButtonClickListener);
 buttonDiv.appendChild(fillButton);
 
 // Clears entire canvas and deselects current color
 clearButton.className = 'buttons';
 clearButton.id = 'clearButton';
 clearButton.innerHTML = 'Clear';
-clearButton.addEventListener('click', function() {
-  for (var i = 0; i < document.getElementsByClassName('canvasCell').length; i++) {
-    document.getElementsByClassName('canvasCell')[i].style.backgroundColor = 'rgb(255, 255, 255)';
-  }
-  resetPalette();
-  previousColor = 'rgb(255, 255, 255)'
-  currentColor = 'rgb(255, 255, 255)';
-  mouseClick = false;
-});
+clearButton.addEventListener('click', clearButtonClickListener);
 buttonDiv.appendChild(clearButton);
 
 saveButton.id = "saveButton";
@@ -151,6 +111,56 @@ loadButton.innerHTML = "Load";
 loadButton.addEventListener("click", loadPic);
 buttonDiv.appendChild(loadButton);
 
+/* Functions */
+function canvasCellClickListener() {
+  if (!mouseClick) {
+    event.target.style.backgroundColor = currentColor;
+    mouseClick = true;
+  } else if (mouseClick) {
+    mouseClick = false;
+  }
+}
+
+function canvasCellMouseoverListener() {
+  if (mouseClick) {
+  event.target.style.backgroundColor = currentColor;
+  }
+}
+
+function paletteCellClickListener() {
+  resetPalette();
+  event.target.style.width = '36px';
+  event.target.style.height = '36px';
+  event.target.style.border = '2px solid black';
+  previousColor = currentColor;
+  currentColor = event.target.style.backgroundColor;
+  mouseClick = false;
+}
+
+function eraseButtonClickListener() {
+  currentColor = 'rgb(255, 255, 255)';
+  mouseClick = false;
+}
+
+function clearButtonClickListener() {
+  for (var i = 0; i < document.getElementsByClassName('canvasCell').length; i++) {
+  document.getElementsByClassName('canvasCell')[i].style.backgroundColor = 'rgb(255, 255, 255)';
+  }
+  resetPalette();
+  previousColor = 'rgb(255, 255, 255)';
+  currentColor = 'rgb(255, 255, 255)';
+  mouseClick = false;
+}
+
+function fillButtonClickListener() {
+  var canvasCellArr = document.getElementsByClassName('canvasCell');
+  for (var i = 0; i < canvasCellArr.length; i++) {
+  if (canvasCellArr[i].style.backgroundColor !== previousColor) {
+    console.log(currentColor);
+    canvasCellArr[i].style.backgroundColor = currentColor;
+    }
+  }
+}
 // Functions to save and load pictures
 // Can only save one picture at a time
 // Saving another picture will rewrite current save
@@ -180,4 +190,3 @@ function resetPalette() {
     document.getElementsByClassName('paletteCell')[i].style.border = '0px';
   }
 }
-
