@@ -1,12 +1,14 @@
+
+
 body {
   background-image: url('https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg');
   background-repeat: no-repeat;
-  background-position: bottom 0px left;
-  background-size: 25%;
+  background-position: bottom 0rem left;
+  background-size: 20rem;
 }
 
 h1 {
-  font-size: 150px;
+  font-size: 5rem;
   text-align: center;
    background: -webkit-linear-gradient(#ff4d4d
   , #ffb366, #3366ff,#4dd2ff,#66ff99, #a64dff, #ffff00);
@@ -17,8 +19,9 @@ h1 {
 }
 
 #pixelPainter {
-  width: 700px;
+  max-width: 43rem;
   margin: auto;
+  overflow-wrap: inherit;
 }
 
 .painterCanvas {
@@ -27,39 +30,36 @@ h1 {
 }
 
 .canvasCell {
-  border: 1px solid black;
-  height: 20px;
-  width: 20px;
+  border: 0.01rem solid black;
+  height: 1.3rem;
+  width: 1.3rem;
   display: inline-block;
 }
 
 .painterPalette {
-  margin-left: 50px;
-  float: left;
   position: absolute;
+  margin-left: 3rem;
   display: inline-block;
 }
 
 .paletteCell {
-  height: 40px;
-  width: 40px;
+  height: 2rem;
+  width: 2rem;
   display: inline-block;
-
 }
 
 .buttonDiv {
-  width: 200px;
-  margin: auto;
+  width: 12.5rem;
   display: inline-block;
 }
 
 .buttons {
-  font-size: 15px;
+  font-size: 1rem;
   font-family: 'Princess Sofia', cursive;
+  width: 10rem;
   margin: auto;
-  width: 200px;
+  margin-top: 1.5rem;
   display: block;
-  margin-top: 20px;
 }
 
 /*#clearButton {
