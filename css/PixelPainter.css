@@ -1,25 +1,31 @@
 
 
 body {
-  /*background-image: url('https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg');*/
+  background-image: url('https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg');
   background-repeat: no-repeat;
-  background-position: bottom 0rem left;
-  background-size: 20rem;
+  background-position: bottom -1rem left;
+  background-size: 15rem;
 }
 
 h1 {
   font-size: 5rem;
   text-align: center;
+  color: blue;
+  font-family: cursive;
+/*browser has a set margin size for h1 (inspected*/
+  -webkit-margin-after: 1rem;
    background: -webkit-linear-gradient(#ff4d4d
   , #ffb366, #3366ff,#4dd2ff,#66ff99, #a64dff, #ffff00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Princess Sofia', cursive;
-  color: background: -webkit-linear-gradient(left top, red, yellow);
+/*  color: background: -webkit-linear-gradient(left top, red, yellow);*/
 }
 
 #pixelPainter {
-  max-width: 43rem;
+/*  min-width: 43rem;*/
+/*setting a width prevents cells from overflowing when window is shrunk*/
+  width: 43rem;
   margin: auto;
   overflow-wrap: inherit;
 }
@@ -58,7 +64,7 @@ h1 {
   font-family: 'Princess Sofia', cursive;
   width: 10rem;
   margin: auto;
-  margin-top: 1.5rem;
+  margin-top: 0.6rem;
   display: block;
 }
 
