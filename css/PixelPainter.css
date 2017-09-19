@@ -1,7 +1,7 @@
 
 
 body {
-  background-image: url('https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg');
+  /*background-image: url('https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg');*/
   background-repeat: no-repeat;
   background-position: bottom 0rem left;
   background-size: 20rem;
@@ -43,8 +43,8 @@ h1 {
 }
 
 .paletteCell {
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   display: inline-block;
 }
 

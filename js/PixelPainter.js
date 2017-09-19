@@ -25,7 +25,7 @@ var mouseClick = false;
 // Used to save current picture on canvas
 var colorArray = [];
 
-var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff',
+var colorArr = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', 
                 '4169e1', '3b411d', 'f10714', '0d8163', '255083',
                 '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f',
                 '00fa9a', '00ffff', '666699','cc9900','#ffff99',
@@ -129,9 +129,9 @@ function canvasCellMouseoverListener() {
 
 function paletteCellClickListener() {
   resetPalette();
-  event.target.style.width = '36px';
-  event.target.style.height = '36px';
-  event.target.style.border = '2px solid black';
+  event.target.style.width = '2.1rem';
+  event.target.style.height = '2.1rem';
+  event.target.style.border = '0.2rem dashed black';
   previousColor = currentColor;
   currentColor = event.target.style.backgroundColor;
   mouseClick = false;
@@ -185,8 +185,8 @@ function loadPic(){
 // Used to reset size of the palette cells when selecting a new color
 function resetPalette() {
   for (var i = 0; i < document.getElementsByClassName('paletteCell').length; i++) {
-    document.getElementsByClassName('paletteCell')[i].style.width = '40px';
-    document.getElementsByClassName('paletteCell')[i].style.height = '40px';
-    document.getElementsByClassName('paletteCell')[i].style.border = '0px';
+    document.getElementsByClassName('paletteCell')[i].style.width = '2.5rem';
+    document.getElementsByClassName('paletteCell')[i].style.height = '2.5rem';
+    document.getElementsByClassName('paletteCell')[i].style.border = '0rem';
   }
 }
