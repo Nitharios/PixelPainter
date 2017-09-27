@@ -1,2 +1,8 @@
 body {
   background-color: #00416A; }
+
+.pixelCell {
+  border: 1px solid black;
+  width: 10px;
+  height: 10px;
+  display: inline-block; }

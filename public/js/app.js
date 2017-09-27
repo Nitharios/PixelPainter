@@ -50,6 +50,7 @@ function pixelPainter() {
   }
 
   // Function: Changes the backgroundColor of the pixelCell to the currently selected color
+  // does the DOM have access to this function? YEA IT DOES!
   function colorChanger() {
     this.style.backgroundColor = currentColor;
   }
