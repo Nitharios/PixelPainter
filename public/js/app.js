@@ -16,31 +16,41 @@ How many options? --> Erase, Clear, Save, Load
 
 // Function checker and will build a 400 pixel canvas
 let appBuilder = new pixelPainter();
-// appBuilder.pixelBuilder(20, 20);
+appBuilder.pixelBuilder(20, 20);
 
 // Start with the Revealing Module Pattern?
 function pixelPainter() {
 
   // hidden from global
   let pixelCanvas = document.getElementById("pixelCanvas");
+  let currentColor = '#000000';
 
   return {
     pixelBuilder : pixelBuilder
   };
 
-  // Function: Need to build a pixel builder the returns something
+  /*
+    Function: generates a pixelRow in the outer loop and then pixelCells in the inner loop.
+    pixelCells are appended to their respective pixelRow and the pixelRow is appended to the DOM.
+  */
   function pixelBuilder(width, height) {
-    // need a loop
-    for (let i = 0; i < height; i++) {
-      console.log(pixelPainter);
-      // create a row using another loop
-      for (let j = 0; j < width; j++) {
 
-        let pixelRow = document.createElement("div");
-        // append pixels to row
-        pixelCanvas.appendChild(pixelRow);
-        console.log("sanityCheck");
+    for (let i = 0; i < height; i++) {
+      let pixelRow = document.createElement("div");
+      pixelRow.className = "pixelRow";
+
+      for (let j = 0; j < width; j++) {
+        let pixelCell = document.createElement("div");
+        pixelCell.className = "pixelCell";
+        pixelCell.addEventListener("click", colorChanger);
+        pixelRow.appendChild(pixelCell);
       }
+      pixelCanvas.appendChild(pixelRow);
     }
+  }
+
+  // Function: Changes the backgroundColor of the pixelCell to the currently selected color
+  function colorChanger() {
+    this.style.backgroundColor = currentColor;
   }
 }
