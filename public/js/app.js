@@ -55,4 +55,11 @@ function pixelPainter() {
   function colorChanger() {
     this.style.backgroundColor = currentColor;
   }
+
+  /*
+    Function: changes the currentColor to whatever is clicked
+  */
+  function changeCurrentColor() {
+    currentColor = this.style.backgroundColor;
+  }
 }
