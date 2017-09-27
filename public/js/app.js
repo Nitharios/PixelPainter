@@ -11,7 +11,8 @@ Start with a parent div that wraps the entire setup and set margin to auto
 What does setup consist of? --> 2 columns: 1 for the canvas, order 1? and 1 for the palette and options
 How large will the canvas be? --> Depends, could do a 20x20 grid and grow from there
 How many palette colors? --> Black, white, blue, yellow, orange, pink, red, purple, green, grey to start
-How many options? --> Erase, Clear, Save, Load
+How many options? --> Erase, Clear, Save, Load, 
+  Size Selector - pre-defined list of canvas dimesions that changes the number of pixels on the canvas but doesn't change the overall size of the canvas
 */
 
 // Function checker and will build a 400 pixel canvas
